@@ -48,7 +48,7 @@ class formajax {
         } else {
             // От кого пришло
             $host = parse_url('http://'.$_SERVER['HTTP_HOST']);
-            $from = 'noreply@' . str_replace(array('http://','www.'),'',$host['host']);
+            $from = 'noreply@' . str_replace(array('http://','www.','https://'),'',$host['host']);
             $this->mail->AddCustomHeader("List-Unsubscribe: <mailto:{$from}?subject=Unsubscribe>");
             $this->mail->setFrom($from,$fromname);
         }
