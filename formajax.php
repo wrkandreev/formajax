@@ -24,7 +24,7 @@ class formajax {
         $rules = [];
         foreach ($_POST as $key => $item)
         {
-            $rules[$key] = FILTER_SANITIZE_FULL_SPECIAL_CHARS;
+            $rules[$key] = htmlspecialchars($rules[$key] ?? "");
         }
         $this->post = filter_input_array(INPUT_POST, $rules);
         $this->names = isset($this->post['fa_names']) ? json_decode(str_replace('&#34;','"',$this->post['fa_names']),1) : array();
@@ -69,9 +69,11 @@ class formajax {
         if (count($this->post)) {
             $data .= '<html><body><div style="background:#f7fbff;border:1px solid #e5e5e5;padding:5px 15px;">';
             foreach ($this->post as $key => $item) {
+
                 if ($item) {
-                    $name = isset($this->names[$key]) ? $this->names[$key] : $key;
-                    $data .= '<p><strong>' . $name . ':</strong> ' . $item . '<br/></p>';
+                    $name = $this->names[$key] ?? $key;
+                    $data .= '<p><strong>' . $name . ':</strong> ' . $item .'<br/></p>';
+
                 }
             }
             $data .= '</div>';
@@ -86,7 +88,7 @@ class formajax {
         if (count($this->post)) {
             foreach ($this->post as $key => $item) {
                 if ($item) {
-                    $name = isset($this->names[$key]) ? $this->names[$key] : $key;
+                    $name = $this->names[$key] ?? $key;
                     $data .= $name . ': ' . $item . '; ' . PHP_EOL;
                 }
             }
@@ -127,9 +129,9 @@ class formajax {
 
     public function send ($to = null, $subject = 'Обратный звонок', $fromname = null, $smtp = null, $callback = null)
     {
-        $subject = isset($this->post['fa_subject']) ? $this->post['fa_subject'] : $subject;
+        $subject = $this->post['fa_subject'] ?? $subject;
         unset($this->post['fa_subject']);
-        $to = isset($this->post['fa_to']) ? $this->post['fa_to'] : $to;
+        $to = $this->post['fa_to'] ?? $to;
         unset($this->post['fa_to']);
         if ($to && $to !== 'to@to.to') {
             foreach (explode(',', $to) as $item) {

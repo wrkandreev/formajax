@@ -1,7 +1,7 @@
 
 ;(function () {
     var settings = {
-        phpScript:      'index.php', // ссылка до обработчика
+        phpScript:      '/app/formajax/index.php', // ссылка до обработчика
         empty:          'Заполните необходимые поля',
         fatal:          'Неизвестная ошибка',
         sending:        'Отправка сообщения',
@@ -139,7 +139,7 @@
                 /* Сбор имён */
                 var names;
                 if ((names = item.getAttribute('data-name'))) {
-                    self.names[name] = names;
+                    self.names[name] = item.getAttribute("data-name");
                 }
             });
         },
