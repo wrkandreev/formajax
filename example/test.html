@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title form ajax php 8.3</title>
+    <script async src="../formajax.js"></script>
+    <link rel="stylesheet" href="formajax.css">
+</head>
+<body>
+    <form data-formajax="Произвольная тема" data-to="несколько почт через запятую">
+    <div class="form-group">
+        <label>Телефон</label>
+        <label for="name">Имя</label>
+        <input class="form-control" name="name" data-name="ФИО" data-error="Заполните ФИО">
+        <label for="phone">Телефон</label>
+        <input class="form-control" type="tel" name="phone" data-name="Телефон" data-error="Заполните телефон">
+    </div>
+    <button class="btn btn-primary">Отправить</button>
+</form>
+</body>
+</html>

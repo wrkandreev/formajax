@@ -1,0 +1,58 @@
+input, select {
+    width: 100%;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 3px #ddd;
+    border-radius: 4px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+button {
+    font-size: 17px;
+    font-family: 'Source Sans Pro', sans-serif;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    padding: 6px 18px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #04AA6D;
+    color: #ffffff;
+}
+
+form .alert {
+    padding: 5px 0 10px;
+    font-size: 20px;
+}
+
+form .alert-error, form .invalid-feedback {
+    color: red;
+}
+
+form .alert-success {
+    color: #009640;
+}
+button:disabled {
+    cursor: default;
+    background-color: #e3e3e3;
+}
+button:disabled:hover {
+    background-color: #e3e3e3!important;
+}
